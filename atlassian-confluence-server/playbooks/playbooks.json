@@ -1,0 +1,562 @@
+{
+  "type": "workflow_collections",
+  "data": [
+    {
+      "uuid": "1574b36a-b992-4a44-81ff-89aa8c06d6fb",
+      "@type": "WorkflowCollection",
+      "name": "Sample - Atlassian Confluence Server - 1.0.0",
+      "description": "Atlassian Confluence is a team workspace where knowledge and collaboration meet. Create, collaborate, and organize all your work in one place.",
+      "visible": true,
+      "image": null,
+      "recordTags": [
+        "Atlassian",
+        "atlassian-confluence-server"
+      ],
+      "workflows": [
+        {
+          "@type": "Workflow",
+          "uuid": "51b3994f-657e-481b-ada9-1d8249e38e02",
+          "collection": "/api/3/workflow_collections/1574b36a-b992-4a44-81ff-89aa8c06d6fb",
+          "triggerLimit": null,
+          "description": "Retrieves a list of all spaces from Atlassian Confluence Server based on the input parameters you have specified.",
+          "name": "Get Spaces List",
+          "tag": "#Atlassian Confluence Server",
+          "recordTags": [
+            "Atlassian",
+            "atlassian-confluence-server"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/5ea9092d-799e-4b1d-90aa-bc933d8575b6",
+          "steps": [
+            {
+              "uuid": "5ea9092d-799e-4b1d-90aa-bc933d8575b6",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "route": "dd61ab5b-f530-4e78-be86-98f7dcc885e0",
+                "title": "Atlassian Confluence Server: Get Spaces List",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "singleRecordExecution": false,
+                "noRecordExecution": true,
+                "executeButtonText": "Execute"
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
+            },
+            {
+              "uuid": "75463b21-c244-4c1f-90d2-808d08d97840",
+              "@type": "WorkflowStep",
+              "name": "Get Spaces List",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "Atlassian Confluence Server",
+                "config": "''",
+                "params": [],
+                "version": "1.0.0",
+                "connector": "atlassian-confluence-server",
+                "operation": "get_spaces_list",
+                "operationTitle": "Get Spaces List"
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "uuid": "56390a68-e119-4a16-8195-276de27bcf04",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Get Spaces List",
+              "sourceStep": "/api/3/workflow_steps/5ea9092d-799e-4b1d-90aa-bc933d8575b6",
+              "targetStep": "/api/3/workflow_steps/75463b21-c244-4c1f-90d2-808d08d97840"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "f67d49b5-2caa-4a0d-a1b4-e99b2370aabd",
+          "collection": "/api/3/workflow_collections/1574b36a-b992-4a44-81ff-89aa8c06d6fb",
+          "triggerLimit": null,
+          "description": "Creates a new Space in Atlassian Confluence Server.",
+          "name": "Create Space",
+          "tag": "#Atlassian Confluence Server",
+          "recordTags": [
+            "Atlassian",
+            "atlassian-confluence-server"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/0a606943-1363-4d6d-aa94-ff435e2e1df9",
+          "steps": [
+            {
+              "uuid": "0a606943-1363-4d6d-aa94-ff435e2e1df9",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "route": "f5594bb6-d4fd-410d-a8fd-4698bc493f29",
+                "title": "Atlassian Confluence Server: Create Space",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "singleRecordExecution": false,
+                "noRecordExecution": true,
+                "executeButtonText": "Execute"
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
+            },
+            {
+              "uuid": "cb875148-1ca8-4745-9837-e6adf0545936",
+              "@type": "WorkflowStep",
+              "name": "Create Space",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "Atlassian Confluence Server",
+                "config": "''",
+                "params": [],
+                "version": "1.0.0",
+                "connector": "atlassian-confluence-server",
+                "operation": "create_space",
+                "operationTitle": "Create Space"
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "uuid": "878ea51e-1b7c-4963-923d-6999cfb93142",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Create Space",
+              "sourceStep": "/api/3/workflow_steps/0a606943-1363-4d6d-aa94-ff435e2e1df9",
+              "targetStep": "/api/3/workflow_steps/cb875148-1ca8-4745-9837-e6adf0545936"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "a1b1bba6-f2f3-4edb-90a1-9199d7e2c344",
+          "collection": "/api/3/workflow_collections/1574b36a-b992-4a44-81ff-89aa8c06d6fb",
+          "triggerLimit": null,
+          "description": "Retrieves a list of content from Atlassian Confluence Server based on the space key, page title and other input parameters you have specified.",
+          "name": "Get Content List",
+          "tag": "#Atlassian Confluence Server",
+          "recordTags": [
+            "Atlassian",
+            "atlassian-confluence-server"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/555fff16-988d-42ea-a807-93a4617606be",
+          "steps": [
+            {
+              "uuid": "555fff16-988d-42ea-a807-93a4617606be",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "route": "28a6d273-bb1c-419e-af19-f18b22a8d4f1",
+                "title": "Atlassian Confluence Server: Get Content List",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "singleRecordExecution": false,
+                "noRecordExecution": true,
+                "executeButtonText": "Execute"
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
+            },
+            {
+              "uuid": "942b6546-a506-43d9-9a0a-d49fad86b973",
+              "@type": "WorkflowStep",
+              "name": "Get Content List",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "Atlassian Confluence Server",
+                "config": "''",
+                "params": {
+                  "expand": "space,body.view,version"
+                },
+                "version": "1.0.0",
+                "connector": "atlassian-confluence-server",
+                "operation": "get_content_list",
+                "operationTitle": "Get Content List"
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "uuid": "63e74dd6-0699-43cc-82bb-c9fd7eb5abab",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Get Content List",
+              "sourceStep": "/api/3/workflow_steps/555fff16-988d-42ea-a807-93a4617606be",
+              "targetStep": "/api/3/workflow_steps/942b6546-a506-43d9-9a0a-d49fad86b973"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "a6375d97-1b26-4e79-9687-71b17cd0eae7",
+          "collection": "/api/3/workflow_collections/1574b36a-b992-4a44-81ff-89aa8c06d6fb",
+          "triggerLimit": null,
+          "description": "Creates a new piece of content in Atlassian Confluence Server.",
+          "name": "Create Content",
+          "tag": "#Atlassian Confluence Server",
+          "recordTags": [
+            "Atlassian",
+            "atlassian-confluence-server"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/42bc8736-fdef-4d0e-990b-ee2512a76b56",
+          "steps": [
+            {
+              "uuid": "42bc8736-fdef-4d0e-990b-ee2512a76b56",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "route": "8da590aa-c327-48ff-ab3b-34f91778903a",
+                "title": "Atlassian Confluence Server: Create Content",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "singleRecordExecution": false,
+                "noRecordExecution": true,
+                "executeButtonText": "Execute"
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
+            },
+            {
+              "uuid": "ed099223-d74d-4695-8f03-bfeb8654eaa7",
+              "@type": "WorkflowStep",
+              "name": "Create Content",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "Atlassian Confluence Server",
+                "config": "''",
+                "params": [],
+                "version": "1.0.0",
+                "connector": "atlassian-confluence-server",
+                "operation": "create_content",
+                "operationTitle": "Create Content"
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "uuid": "6723a625-dc06-42af-bbfa-9a783fd85885",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Create Content",
+              "sourceStep": "/api/3/workflow_steps/42bc8736-fdef-4d0e-990b-ee2512a76b56",
+              "targetStep": "/api/3/workflow_steps/ed099223-d74d-4695-8f03-bfeb8654eaa7"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "df8e0549-91a1-48a6-83bb-573cf01f08c5",
+          "collection": "/api/3/workflow_collections/1574b36a-b992-4a44-81ff-89aa8c06d6fb",
+          "triggerLimit": null,
+          "description": "Updates the content in Atlassian Confluence Server.",
+          "name": "Update Content",
+          "tag": "#Atlassian Confluence Server",
+          "recordTags": [
+            "Atlassian",
+            "atlassian-confluence-server"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/42dc2432-173e-4fc9-9c3e-b4f6579657ea",
+          "steps": [
+            {
+              "uuid": "42dc2432-173e-4fc9-9c3e-b4f6579657ea",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "route": "2099b71e-707a-4e2d-9a21-32986bc0936d",
+                "title": "Atlassian Confluence Server: Update Content",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "singleRecordExecution": false,
+                "noRecordExecution": true,
+                "executeButtonText": "Execute"
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
+            },
+            {
+              "uuid": "dbb71823-ae45-470b-aed1-3fa95eaca32b",
+              "@type": "WorkflowStep",
+              "name": "Update Content",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "Atlassian Confluence Server",
+                "config": "''",
+                "params": [],
+                "version": "1.0.0",
+                "connector": "atlassian-confluence-server",
+                "operation": "update_content",
+                "operationTitle": "Update Content"
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "uuid": "cea47b20-0bf1-40c9-b911-c0dfded39581",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Update Content",
+              "sourceStep": "/api/3/workflow_steps/42dc2432-173e-4fc9-9c3e-b4f6579657ea",
+              "targetStep": "/api/3/workflow_steps/dbb71823-ae45-470b-aed1-3fa95eaca32b"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "af0f761a-2c11-4a7f-ad5a-c5ded6a5e65a",
+          "collection": "/api/3/workflow_collections/1574b36a-b992-4a44-81ff-89aa8c06d6fb",
+          "triggerLimit": null,
+          "description": "Deletes the content from Atlassian Confluence Server.",
+          "name": "Delete Content",
+          "tag": "#Atlassian Confluence Server",
+          "recordTags": [
+            "Atlassian",
+            "atlassian-confluence-server"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/29b567b2-5e19-4bb7-b4a3-24dc8bed51a3",
+          "steps": [
+            {
+              "uuid": "29b567b2-5e19-4bb7-b4a3-24dc8bed51a3",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "route": "298de180-a985-40a9-95d8-8039c7082941",
+                "title": "Atlassian Confluence Server: Delete Content",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "singleRecordExecution": false,
+                "noRecordExecution": true,
+                "executeButtonText": "Execute"
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
+            },
+            {
+              "uuid": "ed99ea9f-d4e1-41c8-b306-c8abb96dbe93",
+              "@type": "WorkflowStep",
+              "name": "Delete Content",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "Atlassian Confluence Server",
+                "config": "''",
+                "params": [],
+                "version": "1.0.0",
+                "connector": "atlassian-confluence-server",
+                "operation": "delete_content",
+                "operationTitle": "Delete Content"
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "uuid": "711ab435-8346-4ae8-8b34-b202eb371764",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Delete Content",
+              "sourceStep": "/api/3/workflow_steps/29b567b2-5e19-4bb7-b4a3-24dc8bed51a3",
+              "targetStep": "/api/3/workflow_steps/ed99ea9f-d4e1-41c8-b306-c8abb96dbe93"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "4223e173-b529-4b5e-8ce5-ee2f9ba42e77",
+          "collection": "/api/3/workflow_collections/1574b36a-b992-4a44-81ff-89aa8c06d6fb",
+          "triggerLimit": null,
+          "description": "Retrieves a list of content from Atlassian Confluence Server based on the Confluence Query Language (CQL). For reference: https://developer.atlassian.com/server/confluence/advanced-searching-using-cql",
+          "name": "Get Content List Using CQL",
+          "tag": "#Atlassian Confluence Server",
+          "recordTags": [
+            "Atlassian",
+            "atlassian-confluence-server"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/419e1e6e-0c28-48be-a96e-a837da6e7441",
+          "steps": [
+            {
+              "uuid": "419e1e6e-0c28-48be-a96e-a837da6e7441",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "route": "1d81a746-4304-4a4e-8a5e-916989750fee",
+                "title": "Atlassian Confluence Server: Get Content List Using CQL",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "singleRecordExecution": false,
+                "noRecordExecution": true,
+                "executeButtonText": "Execute"
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
+            },
+            {
+              "uuid": "718a4bfe-c0e6-4bcb-9d72-4b7fab1bde53",
+              "@type": "WorkflowStep",
+              "name": "Get Content List Using CQL",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "Atlassian Confluence Server",
+                "config": "''",
+                "params": {
+                  "expand": "space,body.view,version"
+                },
+                "version": "1.0.0",
+                "connector": "atlassian-confluence-server",
+                "operation": "get_content_list_using_cql",
+                "operationTitle": "Get Content List Using CQL"
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "uuid": "849605aa-ea53-4285-8194-7d9a54d5819b",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Get Content List Using CQL",
+              "sourceStep": "/api/3/workflow_steps/419e1e6e-0c28-48be-a96e-a837da6e7441",
+              "targetStep": "/api/3/workflow_steps/718a4bfe-c0e6-4bcb-9d72-4b7fab1bde53"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

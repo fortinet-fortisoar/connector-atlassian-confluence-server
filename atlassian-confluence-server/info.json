@@ -1,0 +1,589 @@
+{
+  "name": "atlassian-confluence-server",
+  "label": "Atlassian Confluence Server",
+  "description": "Atlassian Confluence is a team workspace where knowledge and collaboration meet. Create, collaborate, and organize all your work in one place.",
+  "category": "IT Service Management",
+  "version": "1.0.0",
+  "publisher": "Fortinet",
+  "cs_approved": false,
+  "cs_compatible": true,
+  "icon_small_name": "small.png",
+  "icon_large_name": "large.png",
+  "help_online": "",
+  "configuration": {
+    "fields": [
+      {
+        "title": "Server URL",
+        "name": "server_url",
+        "type": "text",
+        "description": "URL of the Atlassian Confluence Server to which you will connect and perform the automated operations.",
+        "placeholder": "Please enter the server URL",
+        "required": true,
+        "editable": true,
+        "visible": true
+      },
+      {
+        "title": "Username",
+        "description": "Username to access the Atlassian Confluence Server to which you will connect and perform the automated operations.",
+        "required": true,
+        "editable": true,
+        "visible": true,
+        "type": "text",
+        "name": "username"
+      },
+      {
+        "title": "Password",
+        "description": "Password to access the Atlassian Confluence Server to which you will connect and perform the automated operations.",
+        "required": true,
+        "editable": true,
+        "visible": true,
+        "type": "password",
+        "name": "password"
+      },
+      {
+        "title": "Verify SSL",
+        "name": "verify_ssl",
+        "type": "checkbox",
+        "description": "Specifies whether the SSL certificate for the server is to be verified. \nBy default, this option is set to True.",
+        "required": false,
+        "editable": true,
+        "visible": true,
+        "value": true
+      }
+    ]
+  },
+  "operations": [
+    {
+      "operation": "get_spaces_list",
+      "title": "Get Spaces List",
+      "description": "Retrieves a list of all spaces from Atlassian Confluence Server based on the input parameters you have specified.",
+      "category": "investigation",
+      "annotation": "get_spaces_list",
+      "output_schema": {},
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Type",
+          "name": "type",
+          "type": "select",
+          "options": [
+            "Global",
+            "Personal"
+          ],
+          "tooltip": "Select the type to filter the list of spaces returned. You can choose from following options: global or personal.",
+          "description": "Select the type to filter the list of spaces returned. You can choose from following options: global or personal.",
+          "required": false,
+          "editable": true,
+          "visible": true
+        },
+        {
+          "title": "Status",
+          "name": "status",
+          "type": "select",
+          "options": [
+            "Current",
+            "Archived"
+          ],
+          "tooltip": "Select the status to filter the list of spaces returned. You can choose from following options: current or archived.",
+          "description": "Select the status to filter the list of spaces returned. You can choose from following options: current or archived.",
+          "required": false,
+          "editable": true,
+          "visible": true
+        },
+        {
+          "title": "Limit",
+          "name": "limit",
+          "type": "integer",
+          "tooltip": "Specify the maximum number of items that this operation should return. Default: \"25\".",
+          "description": "Specify the maximum number of items that this operation should return. Default: \"25\".",
+          "required": false,
+          "editable": true,
+          "visible": true
+        }
+      ]
+    },
+    {
+      "operation": "create_space",
+      "title": "Create Space",
+      "description": "Creates a new Space in Atlassian Confluence Server.",
+      "category": "investigation",
+      "annotation": "create_space",
+      "output_schema": {
+          "id": "",
+          "key": "",
+          "name": "",
+          "description": {
+              "plain": {
+                  "value": "",
+                  "representation": ""
+              }
+          },
+          "metadata": {},
+          "_links": {
+              "collection": "",
+              "base": "",
+              "context": "",
+              "self": ""
+          }
+      },
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Key",
+          "name": "key",
+          "type": "text",
+          "tooltip": "Specify the key of the new space that you want to create in Atlassian Confluence Server.",
+          "description": "Specify the key of the new space that you want to create in Atlassian Confluence Server.",
+          "required": true,
+          "editable": true,
+          "visible": true
+        },
+        {
+          "title": "Name",
+          "name": "name",
+          "type": "text",
+          "tooltip": "Specify the name of the new space that you want to create in Atlassian Confluence Server.",
+          "description": "Specify the name of the new space that you want to create in Atlassian Confluence Server.",
+          "required": true,
+          "editable": true,
+          "visible": true
+        },
+        {
+          "title": "Description",
+          "name": "description",
+          "type": "text",
+          "tooltip": "Specify the description of the new space that you want to create in Atlassian Confluence Server.",
+          "description": "Specify the description of the new space that you want to create in Atlassian Confluence Server.",
+          "required": true,
+          "editable": true,
+          "visible": true
+        }
+      ]
+    },
+    {
+      "operation": "get_content_list",
+      "title": "Get Content List",
+      "description": "Retrieves a list of content from Atlassian Confluence Server based on the space key, page title and other input parameters you have specified.",
+      "category": "investigation",
+      "annotation": "get_content_list",
+      "output_schema": {
+          "id": "",
+          "type": "",
+          "status": "",
+          "title": "",
+          "space": {
+              "id": "",
+              "key": "",
+              "name": "",
+              "description": {
+                  "plain": {
+                      "value": "",
+                      "representation": ""
+                  }
+              },
+              "metadata": {},
+              "_links": {
+                  "self": ""
+              }
+          },
+          "version": {
+              "by": {
+                  "type": "",
+                  "username": "",
+                  "userKey": "",
+                  "displayName": "",
+                  "_expandable": {
+                      "status": ""
+                  }
+              },
+              "when": "",
+              "message": "",
+              "number": "",
+              "minorEdit": "",
+              "hidden": ""
+          },
+          "ancestors": [
+              {
+                  "id": "",
+                  "type": "",
+                  "status": "",
+                  "ancestors": [],
+                  "operations": [],
+                  "children": {},
+                  "descendants": {},
+                  "body": {},
+                  "metadata": {},
+                  "restrictions": {},
+                  "_links": {
+                      "self": ""
+                  }
+              }
+          ],
+          "operations": [],
+          "children": {},
+          "descendants": {},
+          "container": {
+              "id": "",
+              "key": "",
+              "name": "",
+              "description": {
+                  "plain": {
+                      "value": "",
+                      "representation": ""
+                  }
+              },
+              "metadata": {},
+              "_links": {
+                  "self": ""
+              }
+          },
+          "body": {
+              "view": {
+                  "value": "",
+                  "representation": "",
+                  "_expandable": {
+                      "content": ""
+                  }
+              }
+          },
+          "metadata": {},
+          "restrictions": {},
+          "_links": {
+              "collection": "",
+              "base": "",
+              "context": "",
+              "self": ""
+          }
+      },
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Space Key",
+          "name": "spaceKey",
+          "type": "text",
+          "tooltip": "Specify the space key from which you want to retrieve the content.",
+          "description": "Specify the space key from which you want to retrieve the content.",
+          "required": true,
+          "editable": true,
+          "visible": true
+        },
+        {
+          "title": "Page Title",
+          "name": "title",
+          "type": "text",
+          "tooltip": "Specify the page title to retrieve from Atlassian Confluence Server.",
+          "description": "Specify the page title to retrieve from Atlassian Confluence Server.",
+          "required": true,
+          "editable": true,
+          "visible": true
+        },
+        {
+          "title": "Properties to Expand",
+          "name": "expand",
+          "type": "text",
+          "value": "space,body.view,version",
+          "tooltip": "Specify a comma separated list of properties to expand on the content. e.g. history,space,version.",
+          "description": "Specify a comma separated list of properties to expand on the content. e.g. history,space,version.",
+          "required": false,
+          "editable": true,
+          "visible": true
+        },
+        {
+          "title": "Limit",
+          "name": "limit",
+          "type": "integer",
+          "tooltip": "Specify the maximum number of items that this operation should return. Default: \"25\".",
+          "description": "Specify the maximum number of items that this operation should return. Default: \"25\".",
+          "required": false,
+          "editable": true,
+          "visible": true
+        }
+      ]
+    },
+    {
+      "operation": "create_content",
+      "title": "Create Content",
+      "description": "Creates a new piece of content in Atlassian Confluence Server.",
+      "category": "investigation",
+      "annotation": "create_content",
+      "output_schema": {},
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Content Type",
+          "name": "type",
+          "type": "text",
+          "tooltip": "Specify the content type that you want to create in Atlassian Confluence Server. e.g. page or blogpost.",
+          "description": "Specify the content type that you want to create in Atlassian Confluence Server. e.g. page or blogpost.",
+          "required": true,
+          "editable": true,
+          "visible": true
+        },
+        {
+          "title": "Space Key",
+          "name": "space",
+          "type": "text",
+          "tooltip": "Specify the space key on which to create the content.",
+          "description": "Specify the space key on which to create the content.",
+          "required": true,
+          "editable": true,
+          "visible": true
+        },
+        {
+          "title": "Title",
+          "name": "title",
+          "type": "text",
+          "tooltip": "Specify the title of the new content that you want to create in Atlassian Confluence Server.",
+          "description": "Specify the title of the new content that you want to create in Atlassian Confluence Server.",
+          "required": true,
+          "editable": true,
+          "visible": true
+        },
+        {
+          "title": "Body",
+          "name": "body",
+          "type": "text",
+          "tooltip": "Specify the body of the new content that you want to create in Atlassian Confluence Server.",
+          "description": "Specify the body of the new content that you want to create in Atlassian Confluence Server.",
+          "required": true,
+          "editable": true,
+          "visible": true
+        }
+      ]
+    },
+    {
+      "operation": "update_content",
+      "title": "Update Content",
+      "description": "Updates the content in Atlassian Confluence Server.",
+      "category": "investigation",
+      "annotation": "update_content",
+      "output_schema": {
+          "id": "",
+          "type": "",
+          "status": "",
+          "title": "",
+          "space": {
+              "id": "",
+              "key": "",
+              "name": "",
+              "description": {
+                  "plain": {
+                      "value": "",
+                      "representation": ""
+                  }
+              },
+              "metadata": {},
+              "_links": {
+                  "self": ""
+              }
+          },
+          "version": {
+              "by": {
+                  "type": "",
+                  "username": "",
+                  "userKey": "",
+                  "displayName": "",
+                  "_expandable": {
+                      "status": ""
+                  }
+              },
+              "when": "",
+              "message": "",
+              "number": "",
+              "minorEdit": "",
+              "hidden": ""
+          },
+          "ancestors": [
+              {
+                  "id": "",
+                  "type": "",
+                  "status": "",
+                  "ancestors": [],
+                  "operations": [],
+                  "children": {},
+                  "descendants": {},
+                  "body": {},
+                  "metadata": {},
+                  "restrictions": {},
+                  "_links": {
+                      "self": ""
+                  }
+              }
+          ],
+          "operations": [],
+          "children": {},
+          "descendants": {},
+          "container": {
+              "id": "",
+              "key": "",
+              "name": "",
+              "description": {
+                  "plain": {
+                      "value": "",
+                      "representation": ""
+                  }
+              },
+              "metadata": {},
+              "_links": {
+                  "self": ""
+              }
+          },
+          "body": {
+              "view": {
+                  "value": "",
+                  "representation": "",
+                  "_expandable": {
+                      "content": ""
+                  }
+              }
+          },
+          "metadata": {},
+          "restrictions": {},
+          "_links": {
+              "collection": "",
+              "base": "",
+              "context": "",
+              "self": ""
+          }
+      },
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Content ID",
+          "name": "contentId",
+          "type": "integer",
+          "tooltip": "Specify the content ID that you want to update in Atlassian Confluence Server.",
+          "description": "Specify the content ID that you want to update in Atlassian Confluence Server.",
+          "required": true,
+          "editable": true,
+          "visible": true
+        },
+        {
+          "title": "Version Number",
+          "name": "version",
+          "type": "integer",
+          "tooltip": "Specify the new version number for the content that you want to update in Atlassian Confluence Server. Note: To update a piece of content you must increment the version number, supplying the number of the version you are creating.",
+          "description": "Specify the new version number for the content that you want to update in Atlassian Confluence Server. Note: To update a piece of content you must increment the version number, supplying the number of the version you are creating.",
+          "required": true,
+          "editable": true,
+          "visible": true
+        },
+        {
+          "title": "Content Type",
+          "name": "type",
+          "type": "text",
+          "tooltip": "Specify the type of the content that you want to update in Atlassian Confluence Server. e.g. page or blogpost.",
+          "description": "Specify the type of the content that you want to update in Atlassian Confluence Server. e.g. page or blogpost.",
+          "required": true,
+          "editable": true,
+          "visible": true
+        },
+        {
+          "title": "Space Key",
+          "name": "space",
+          "type": "text",
+          "tooltip": "Specify the space key on which to update the content.",
+          "description": "Specify the space key on which to update the content.",
+          "required": false,
+          "editable": true,
+          "visible": true
+        },
+        {
+          "title": "Title",
+          "name": "title",
+          "type": "text",
+          "tooltip": "Specify the title of the content that you want to update in Atlassian Confluence Server.",
+          "description": "Specify the title of the content that you want to update in Atlassian Confluence Server.",
+          "required": false,
+          "editable": true,
+          "visible": true
+        },
+        {
+          "title": "Body",
+          "name": "body",
+          "type": "text",
+          "tooltip": "Specify the body of the content that you want to update in Atlassian Confluence Server.",
+          "description": "Specify the body of the content that you want to update in Atlassian Confluence Server.",
+          "required": false,
+          "editable": true,
+          "visible": true
+        }
+      ]
+    },
+    {
+      "operation": "delete_content",
+      "title": "Delete Content",
+      "description": "Deletes the content from Atlassian Confluence Server.",
+      "category": "investigation",
+      "annotation": "delete_content",
+      "output_schema": {},
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Content ID",
+          "name": "contentId",
+          "type": "integer",
+          "tooltip": "Specify the content ID that you want to delete from Atlassian Confluence Server.",
+          "description": "Specify the content ID that you want to delete from Atlassian Confluence Server.",
+          "required": true,
+          "editable": true,
+          "visible": true
+        }
+      ]
+    },
+    {
+      "operation": "get_content_list_using_cql",
+      "title": "Get Content List Using CQL",
+      "description": "Retrieves a list of content from Atlassian Confluence Server based on the Confluence Query Language (CQL). For reference: https://developer.atlassian.com/server/confluence/advanced-searching-using-cql",
+      "category": "investigation",
+      "annotation": "get_content_list_using_cql",
+      "output_schema": {},
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "CQL",
+          "name": "cql",
+          "type": "text",
+          "tooltip": "Specify the Confluence Query Language (CQL) based on which to retrieve the content.",
+          "description": "Specify the Confluence Query Language (CQL) based on which to retrieve the content.",
+          "required": true,
+          "editable": true,
+          "visible": true
+        },
+        {
+          "title": "CQL Context",
+          "name": "cqlcontext",
+          "type": "text",
+          "tooltip": "Specify the context to execute a cql search in, this is the json serialized form of SearchContext.",
+          "description": "Specify the context to execute a cql search in, this is the json serialized form of SearchContext.",
+          "required": false,
+          "editable": true,
+          "visible": true
+        },
+        {
+          "title": "Properties to Expand",
+          "name": "expand",
+          "type": "text",
+          "value": "space,body.view,version",
+          "tooltip": "Specify a comma separated list of properties to expand on the content. e.g. history,space,version.",
+          "description": "Specify a comma separated list of properties to expand on the content. e.g. history,space,version.",
+          "required": false,
+          "editable": true,
+          "visible": true
+        },
+        {
+          "title": "Limit",
+          "name": "limit",
+          "type": "integer",
+          "tooltip": "Specify the maximum number of items that this operation should return. Default: \"25\".",
+          "description": "Specify the maximum number of items that this operation should return. Default: \"25\".",
+          "required": false,
+          "editable": true,
+          "visible": true
+        }
+      ]
+    }
+  ]
+}
+
+
