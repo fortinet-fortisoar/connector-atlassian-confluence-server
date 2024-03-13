@@ -9,7 +9,7 @@
   "cs_compatible": true,
   "icon_small_name": "small.png",
   "icon_large_name": "large.png",
-  "help_online": "",
+  "help_online": "https://github.com/fortinet-fortisoar/connector-atlassian-confluence-server/blob/release/1.0.0/docs/AtlassianConfluenceServerConnectorDoc.md",
   "configuration": {
     "fields": [
       {
